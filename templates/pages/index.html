@@ -25,9 +25,14 @@
                             <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
                         </div>
                         <p style="text-align: justify;">
-                            {{post.content}}
+                            {% with post.content|slice:"200" as truncated_content %}
+                            {{ truncated_content }}
+                           
+                            {% endwith %}
                         </p>
+                        {% if post.content|length > truncated_content|length %}
                         <a class="btn btn-link p-0" href="{% url 'post' post.id %}">Read More <i class="fa fa-angle-right"></i></a>
+                         {% endif %}
                     </div>
                 </div>
             </div>
