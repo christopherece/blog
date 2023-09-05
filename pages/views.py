@@ -15,9 +15,6 @@ def index(request):
     }
     return render(request, 'pages/index.html', context)
 
-def post(request):
-    return render(request, 'pages/post.html')
-
 def about(request):
     return render(request, 'pages/about.html')
 

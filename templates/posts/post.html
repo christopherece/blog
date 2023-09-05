@@ -80,21 +80,27 @@ So, whether you're a tech newbie or a seasoned pro, I'm excited to have you alon
             </div> 
         </div>
         <div class="col-12 py-4">
-            <h3 class="mb-4 font-weight-bold">3 Comments</h3>
-            <div class="media mb-4">
-                <img src="img/user.jpg" alt="Image" class="mr-3 mt-1 rounded-circle" style="width:60px;">
-                <div class="media-body">
-                    <h4>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <button class="btn btn-sm btn-light">Reply</button>
+            <h5 class="mb-4 font-weight-bold"> {{ total_comments }} Comments</h5>
+            {% for comment in comments %}
+                <div class="media mb-2">
+                    <img src="img/user.jpg" alt="Image" class="mr-3 mt-1 rounded-circle" style="width:60px;">
+                    <div class="media-body">
+                        <h5> {{comment.author}} <small><i>{{comment.created_at}}</i></small></h5>
+                        <p>
+                            {{comment.content}}
+                        </p>
+                        <!-- <button class="btn btn-sm btn-light">Reply</button> -->
+                    </div>
                 </div>
-            </div>
-            <div class="media mb-4">
+            {% empty %}
+                <p>No Comments Yet!</p>
+            {% endfor %}
+            
+            <!-- <div class="media mb-4">
                 <img src="img/user.jpg" alt="Image" class="mr-3 mt-1 rounded-circle"
                     style="width:60px;">
                 <div class="media-body">
-                    <h4>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h4>
+                    <h5>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <button class="btn btn-sm btn-light">Reply</button>
@@ -102,17 +108,17 @@ So, whether you're a tech newbie or a seasoned pro, I'm excited to have you alon
                         <img src="img/user.jpg" alt="Image" class="mr-3 mt-1 rounded-circle"
                             style="width:60px;">
                         <div class="media-body">
-                            <h4>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h4>
+                            <h5>John Doe <small><i>01 Jan 2045 at 12:00pm</i></small></h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             </p>
                             <button class="btn btn-sm btn-light">Reply</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-12">
-            <h3 class="mb-4 font-weight-bold">Leave a comment</h3>
+            <h5 class="mb-4 font-weight-bold">Leave a comment</h5>
             <form>
                 <div class="form-group">
                     <label for="name">Name *</label>
