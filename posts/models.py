@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -13,6 +14,7 @@ class Post(models.Model):
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d')
     is_published = models.BooleanField(default=True)
     content = models.TextField()
+    description = RichTextField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     created_at = models.DateTimeField(auto_now_add=True)

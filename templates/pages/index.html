@@ -14,7 +14,7 @@
                         <img class="img-fluid mb-4 mb-md-0" src="{{ post.photo_main.url }}" alt="Image">
                     </div>
                     <div class="col-md-7">
-                        <h5 class="md-4 px-md-3 mb-2 bg-white font-weight-bold">{{post.title}}</h5>
+                        <h5 class="md-4 mb-2 bg-white font-weight-bold">{{post.title}}</h5>
                         <div class="d-flex mb-3">
                             <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> {{post.created_at}}</small>
                             <small class="mr-2 text-muted"><i class="fa fa-folder"></i> 
@@ -25,12 +25,12 @@
                             <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
                         </div>
                         <p style="text-align: justify;">
-                            {% with post.content|slice:"200" as truncated_content %}
-                            {{ truncated_content }}
+                            {% with post.description|slice:"200" as truncated_content %}
+                            {{ truncated_content | safe }}
                            
                             {% endwith %}
                         </p>
-                        {% if post.content|length > truncated_content|length %}
+                        {% if post.description|length > truncated_content|length %}
                         <a class="btn btn-link p-0" href="{% url 'post' post.id %}">Read More <i class="fa fa-angle-right"></i></a>
                          {% endif %}
                     </div>
