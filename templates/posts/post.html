@@ -8,16 +8,16 @@
   <!-- Page Header Start -->
   <div class="container py-5 px-2 bg-primary">
     <div class="row py-5 px-4">
-        <div class="col-sm-6 text-center text-md-left">
-            <h2 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">{{post.title}}</h2>
+        <div class="col text-center text-md-left">
+            <h4 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">{{post.title}}</h4>
         </div>
-        <div class="col-sm-6 text-center text-md-right">
-            <div class="d-inline-flex pt-2">
+        <!-- <div class="col-sm-6 text-center text-md-right">
+            <div class="d-inline-flex pt-2"> -->
                 <!-- <h4 class="m-0 text-white"><a class="text-white" href="">Home</a></h4>
                 <h4 class="m-0 text-white px-2">/</h4>
                 <h4 class="m-0 text-white">{{post.title}}</h4> -->
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
     </div>
 </div>
 <!-- Page Header End -->
@@ -27,7 +27,7 @@
     <div class="row px-4">
         <div class="col-12">
             <img class="img-fluid mb-4" src="img/detail.jpg" alt="Image">
-            <h3 class="mb-3 font-weight-bold">{{post.title}}</h3>
+            <h4 class="mb-3 font-weight-bold">{{post.title}}</h4>
             <div class="d-flex">
                 <p class="mr-3 text-muted"><i class="fa fa-calendar-alt"></i> {{post.created_at}}</p>
                 <p class="mr-3 text-muted"><i class="fa fa-folder"></i> Web Design</p>
@@ -60,19 +60,23 @@ I want this blog to be a two-way street. Share your thoughts, ask questions, or 
 So, whether you're a tech newbie or a seasoned pro, I'm excited to have you along for the ride. Let's dive into the digital world and see what we can discover together!
             </p>
         </div>
+        <!-- <div class="col-12 py-4">
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
+        </div> -->
         <div class="col-12 py-4">
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-            <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>
-        </div>
-        <div class="col-12 py-4">
-            <div class="btn-group btn-group-lg w-100">
-                <button type="button" class="btn btn-outline-primary"><i class="fa fa-angle-left mr-2"></i> Previous</button>
-                <button type="button" class="btn btn-outline-primary">Next<i class="fa fa-angle-right ml-2"></i></button>
+            <div class="btn-group btn-group-md w-100">
+                {% if previous_post %}
+                    <a type="button" href="{% url 'post' previous_post.pk %}" class="btn btn-outline-primary"><i class="fa fa-angle-left mr-2"></i> Previous</a>
+                {% endif %}
+                {% if next_post %}
+                    <a type="button" href="{% url 'post' next_post.pk %}" class="btn btn-outline-primary">Next<i class="fa fa-angle-right ml-2"></i></a>
+                {% endif %}
             </div> 
         </div>
         <div class="col-12 py-4">

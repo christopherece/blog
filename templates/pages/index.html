@@ -27,7 +27,7 @@
                         <p style="text-align: justify;">
                             {{post.content}}
                         </p>
-                        <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        <a class="btn btn-link p-0" href="{% url 'post' post.id %}">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -100,8 +100,8 @@
     
     
     <!-- Subscribe Start -->
-    <div class="container py-5 px-4 bg-secondary text-center">
-        <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
+    <div class="container py-2 px-4 bg-secondary text-center">
+        <h3 class="text-white font-weight-bold">Subscribe My Newsletter</h3>
         <p class="text-white">Subscribe and get my latest article in your inbox</p>
         <form class="form-inline justify-content-center">
             <div class="input-group">
