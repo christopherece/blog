@@ -101,7 +101,10 @@
         </div>
         <div class="col-12">
             <h5 class="mb-4 font-weight-bold">Leave a comment</h5>
-            <form>
+            {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" class="form-control" id="name">
@@ -110,10 +113,7 @@
                     <label for="email">Email *</label>
                     <input type="email" class="form-control" id="email">
                 </div>
-                <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                </div>
+                
 
                 <div class="form-group">
                     <label for="message">Message *</label>
@@ -123,6 +123,11 @@
                     <input type="submit" value="Leave Comment" class="btn btn-primary">
                 </div>
             </form>
+            {% else %}
+                <p>Please <a href="#">Login</a> or <a href="#">Sign Up</a> to leave a comment.</p>
+            {% endif %}
+
+           
         </div>
     </div>
 </div>
