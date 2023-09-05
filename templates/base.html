@@ -21,9 +21,34 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
 <body>
-    {% block content %}
+    <div class="wrapper">
+        {% include 'partials/_sidebar.html' %}
+        <div class="content">
+            <!-- Navbar Start -->
+            {% include 'partials/_navbar.html' %}
 
-    {% endblock %}
+            <!-- Navbar End -->
+            
+            <!-- Carousel Start -->
+            {% include 'partials/_carousel.html' %}
+
+            <!-- Carousel End -->
+            
+            
+            <!-- Blog List Start -->
+            {% block content %}
+
+            {% endblock %}
+            <!-- Blog List End -->
+            
+            
+            <!-- Footer Start -->
+            {% include 'partials/_footer.html' %}
+
+            <!-- Footer End -->
+        </div>
+    </div>
+
 
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -31,8 +56,8 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="{% static 'js/easing/easing.min.js' %}"></script>
+        <script src="{% static 'js/waypoints/waypoints.min.js' %}"></script>
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
