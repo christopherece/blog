@@ -22,10 +22,10 @@
                                     {{ category.name }},
                                 {% endfor %}
                             </small>
-                            <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                            <small class="mr-2 text-muted"><i class="fa fa-comments"></i> {{total_comments}} Comments</small>
                         </div>
                         <p style="text-align: justify;">
-                            {% with post.description|slice:"200" as truncated_content %}
+                            {% with post.description|slice:"400" as truncated_content %}
                             {{ truncated_content | safe }}
                            
                             {% endwith %}
